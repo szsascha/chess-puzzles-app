@@ -1,6 +1,6 @@
 # Chess Puzzles App
 
-Ionic App to generate and solve Chess Puzzles. Start by running the app and clicking `NEXT PUZZLE`. Now a puzzle is generated and you can solve it by dragging a piece on another position. If you're wrong, red fields are indicating the correct move. You were right if only green marked fields are shoing up. Currently it's always whites turn. Click `NEXT PUZZLE` to generate a new puzzle after solving one.
+Ionic App to generate and solve Chess Puzzles. Start by running the app and clicking `NEXT PUZZLE`. Now a puzzle is generated and you can solve it by dragging a piece on another position. If you're wrong, green fields are indicating the correct move. You were right if only green marked fields are shoing up. Currently it's always whites turn. Click `NEXT PUZZLE` to generate a new puzzle after solving one.
 
 ![preview](preview.png)
 
