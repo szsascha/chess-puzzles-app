@@ -11,7 +11,6 @@
         ></div>
     </g-chess-board>
     <ion-button expand="full" @click="onNextPuzzle">Next Puzzle</ion-button>
-    <ion-text color="white" id="result"><center>Take your turn</center></ion-text>
 </template>
 
 <script setup lang="ts">
@@ -55,28 +54,19 @@ onMounted(() => {
             e.preventDefault();
         }
 
-        const resultElement = document.getElementById("result");
-        if (resultElement != null) {
-            const expectedMove = e.detail.from + e.detail.to
-            if (expectedMove == chessService.bestMove) {
-                console.log('success');
-                resultElement.innerHTML = 'Correct move!';
-                markers.value = [
-                    { class: 'green-marker', slot: e.detail.from},
-                    { class: 'green-marker', slot:  e.detail.to}
-                ]
-            } else {
-                resultElement.innerHTML = 'Wrong move - ' + expectedMove + ' was expected.';
-                
-                markers.value = [
-                    { class: 'green-marker', slot: chessService.bestMove.substring(0, 2)},
-                    { class: 'green-marker', slot:  chessService.bestMove.substring(2)},
-                    { class: 'red-marker', slot: e.detail.from},
-                    { class: 'red-marker', slot:  e.detail.to}
-                ]
-            }
-        } else {
-            console.error("result element is null")
+        const expectedMove = e.detail.from + e.detail.to
+        if (expectedMove == chessService.bestMove) {
+            markers.value = [
+                { class: 'green-marker', slot: e.detail.from},
+                { class: 'green-marker', slot:  e.detail.to}
+            ]
+        } else {                
+            markers.value = [
+                { class: 'green-marker', slot: chessService.bestMove.substring(0, 2)},
+                { class: 'green-marker', slot:  chessService.bestMove.substring(2)},
+                { class: 'red-marker', slot: e.detail.from},
+                { class: 'red-marker', slot:  e.detail.to}
+            ]
         }
         board.interactive = false
     });
