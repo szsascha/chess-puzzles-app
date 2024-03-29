@@ -1,0 +1,7 @@
+{
+  "name": "Chess Puzzles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
