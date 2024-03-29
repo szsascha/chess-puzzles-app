@@ -47,13 +47,18 @@ onMounted(() => {
             e.preventDefault();
         }
 
-        if (e.detail.from + e.detail.to == chessService.bestMove) {
-            console.log('success');
-            document.getElementById("result").innerHTML = '<center>Correct move!</center>';
+        const resultElement = document.getElementById("result");
+        if (resultElement != null) {
+            const expectedMove = e.detail.from + e.detail.to
+            if (expectedMove == chessService.bestMove) {
+                console.log('success');
+                resultElement.innerHTML = 'Correct move!';
+            } else {
+                resultElement.innerHTML = 'Wrong move - ' + expectedMove + ' was expected.';
+            }
         } else {
-            document.getElementById("result").innerHTML = '<center>Wrong move</center>';
+            console.error("result element is null")
         }
-
         board.interactive = false
     });
 });
