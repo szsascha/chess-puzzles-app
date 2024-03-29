@@ -21,7 +21,8 @@ import ChessService from '../services/ChessService'
 
 const game = new Chess();
 const markers: [{class: string, slot: string}] | any = ref()
-const chessService = new ChessService();const onNextPuzzle = () => chessService.nextPuzzle()
+const chessService = new ChessService();
+const onNextPuzzle = () => chessService.nextPuzzle()
     .then(fen => {
         const board = document.getElementById("chessBoard") as GChessBoardElement;
         board.fen = fen
@@ -54,8 +55,7 @@ onMounted(() => {
             e.preventDefault();
         }
 
-        const expectedMove = e.detail.from + e.detail.to
-        if (expectedMove == chessService.bestMove) {
+        if (e.detail.from + e.detail.to == chessService.bestMove) {
             markers.value = [
                 { class: 'green-marker', slot: e.detail.from},
                 { class: 'green-marker', slot:  e.detail.to}
